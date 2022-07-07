@@ -13,7 +13,11 @@
     background: #FFFFFF 0% 0% no-repeat padding-box;
     border: 1px solid #CCCDCE;
     border-radius: 2px;
-    width: 270px;
+    width: 270px!important;
+}
+.custom-input-1:focus {
+    outline: none!important;
+    border:none!important;
 }
 .btn-grey {
     background: #E1E1E1!important;
@@ -29,9 +33,43 @@
 .table-head {
     background: #5CB85C;
 }
-.pr-1{
-    padding-right:0;
+.custom-pr-1{
+    padding-right:0!important;
 }
-.pl-1{
-    padding-left:0;
+.custom-pl-1{
+    padding-left:0!important;
+}
+.custom-ml-1 {
+    margin-left: 10px;
+}
+.cell {
+    color: #000000;
+    font-size: 18px;
+    font-weight: 600;
+}
+.custom-head-styling {
+    font-size: 18px;
+    color: #ffffff;
+}
+.table-bordered-custom {
+    border: 1px solid #B4CDD9!important;
+}
+.table-bordered td, .table-bordered th {
+    border: 1px solid #B4CDD9!important;
+}
+.fixed-btn{
+    position: fixed;
+    right: 6%;
+    bottom: 10px;
+}
+.fixed-btn-2{
+    position: fixed;
+    right: 1%;
+    bottom: 10px;
+}
+.btn-green{
+    background: #5CB85C;
+    border: 1px solid #009100;
+    border-radius: 2px;
+    color:#ffffff;
 }

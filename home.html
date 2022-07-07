@@ -10,84 +10,199 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
 </head>
 <body class="body-color">
-<div class="container-fluid pr-1 pl-1">
-<div class="alert-box d-flex justify-content-between align-items-center">
-    <h6>Alerts</h6>
-    <div><img src="assets/images/error transparent.svg"</div>
-</div>
+<div class="container-fluid custom-pr-1 custom-pl-1">
+    <div class="alert-box d-flex justify-content-between align-items-center">
+        <h6>Alerts</h6>
+        <div><img src="assets/images/error transparent.svg"</div>
+    </div>
 </div>
 <div class="container-fluid custom-mt-2">
     <div class="row">
         <div class="col-lg-7 border-right">
             <div class="d-flex justify-content-between align-items-center">
-            <div>
-            <span>
-            Find
-            </span>
-                <span>
-            <input class="custom-input-1" type="text"/>
-            </span>
+                <div class="d-flex align-items-center">
+                    <div>
+                        Find
+                    </div>
+                    <div class="custom-ml-1">
+                        <input class="custom-input-1 form-control" type="text"/>
+                    </div>
+                </div>
+                <div>
+                    <button class="btn btn-grey">Delete</button>
+                </div>
             </div>
-            <div>
-                <button class="btn btn-grey">Delete</button>
-            </div>
-            </div>
-            <table class="table  table-bordered custom-mt-1">
+            <table class="table table-bordered table-bordered-custom custom-mt-1">
                 <thead class="table-head">
-                <tr >
-                    <th scope="col">#</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Description</th>
-                    <th scope="col">Web Reference</th>
+                <tr>
+                    <th class="custom-head-styling" scope="col">#</th>
+                    <th class="custom-head-styling" scope="col">Name</th>
+                    <th class="custom-head-styling" scope="col">Description</th>
+                    <th class="custom-head-styling" scope="col">Web Reference</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr >
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                </tr>
-                <tr >
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                </tr>
-                <tr >
-                    <th scope="row">3</th>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
-                </tr>
+
+                <script>
+                    json_data =
+                        {
+                            "data": [
+                                {
+                                    "id": 1,
+                                    "name": "Andrews Phillip",
+                                    "description": "Contrary to popular belief, Lorem",
+                                    "webReference": "Sam X Williams"
+                                },
+                                {
+                                    "id": 2,
+                                    "name": "Dillard Mauleen",
+                                    "description": "Contrary to popular belief, Lorem",
+                                    "webReference": "Andy Anthony"
+                                },
+                                {
+                                    "id": 3,
+                                    "name": "Miller Jessica",
+                                    "description": "Contrary to popular belief, Lorem",
+                                    "webReference": "Mark Twian"
+                                },
+                                {
+                                    "id": 4,
+                                    "name": "Marcus Brownless",
+                                    "description": "Contrary to popular belief, Lorem",
+                                    "webReference": "Phillip Melo"
+                                },
+                                {
+                                    "id": 5,
+                                    "name": "Jake Peralta",
+                                    "description": "Contrary to popular belief, Lorem",
+                                    "webReference": "Andy Anthony"
+                                },
+                                {
+                                    "id": 6,
+                                    "name": "Adam Lewy",
+                                    "description": "Contrary to popular belief, Lorem",
+                                    "webReference": "Andy Anthony"
+                                },
+                                {
+                                    "id": 7,
+                                    "name": "Anthony Hopkins",
+                                    "description": "Contrary to popular belief, Lorem",
+                                    "webReference": "Terry Christie"
+                                },
+                                {
+                                    "id": 8,
+                                    "name": "Sebastian Vettel",
+                                    "description": "Contrary to popular belief, Lorem",
+                                    "webReference": "George Lecrec"
+                                },
+                                {
+                                    "id": 9,
+                                    "name": "John Ralfion",
+                                    "description": "Contrary to popular belief, Lorem",
+                                    "webReference": "Andy Anthony"
+                                },
+                                {
+                                    "id": 10,
+                                    "name": "Leslie Knope",
+                                    "description": "Contrary to popular belief, Lorem",
+                                    "webReference": "April Ludgate"
+                                },
+                                {
+                                    "id": 11,
+                                    "name": "Rom Swanson",
+                                    "description": "Contrary to popular belief, Lorem",
+                                    "webReference": "Andrew Bernard"
+                                },
+                                {
+                                    "id": 12,
+                                    "name": "Jimothy Halpert",
+                                    "description": "Contrary to popular belief, Lorem",
+                                    "webReference": "Jack Ryan"
+                                },
+                                {
+                                    "id": 13,
+                                    "name": "Michael Scott",
+                                    "description": "Contrary to popular belief, Lorem",
+                                    "webReference": "Prison Mike"
+                                },
+                                {
+                                    "id": 14,
+                                    "name": "Walter White",
+                                    "description": "Contrary to popular belief, Lorem",
+                                    "webReference": "Albert S Crews"
+                                },
+                                {
+                                    "id": 15,
+                                    "name": "Sheldon Cooper",
+                                    "description": "Contrary to popular belief, Lorem",
+                                    "webReference": "Craig McMullam"
+                                }
+                            ]
+                        }
+                    //Accessing the JSON Document using these loops
+                    Object.keys(json_data['data']).forEach(key => {
+                        var tr = document.createElement('tr');
+                        tr.className = 'cell'
+                        document.getElementsByTagName('tbody')[0].appendChild(tr);
+                        Object.keys(json_data['data'][key]).forEach(key2 => {
+                            var td = document.createElement('td');
+                            td.setAttribute('colspan', '1');
+                            if (key2 === 'users') {
+                                Object.keys(json_data['data'][key][key2]).forEach(key3 => {
+                                    if (key3 > 0) {
+                                        td.innerHTML = td.innerHTML + ', ' + json_data['data'][key][key2][key3]['name'];
+                                    } else {
+                                        td.innerHTML = td.innerHTML + json_data['data'][key][key2][key3]['name'];
+                                    }
+
+                                })
+                            } else {
+                                td.innerHTML = json_data['data'][key][key2];
+                            }
+                            document.getElementsByClassName('cell')[key].appendChild(td);
+                        })
+                    });
+
+
+                </script>
+
                 </tbody>
             </table>
         </div>
         <div class="col-lg-5">
-            <div class="d-flex justify-content-between align-items-center">
-                <h5>Name</h5>
-                <div>
-                <input class="custom-input-1" type="text"/>
+            <form id="myForm">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h5>Name</h5>
+                    <div>
+                        <input class="custom-input-1 form-control" type="text"/>
+                    </div>
                 </div>
-            </div>
-            <div class="d-flex justify-content-between align-items-center custom-mt-1">
-                <h5>Description</h5>
-                <div>
-                    <input class="custom-input-1" type="text"/>
+                <div class="d-flex justify-content-between align-items-center custom-mt-1">
+                    <h5>Description</h5>
+                    <div>
+                        <input class="custom-input-1 form-control" type="text"/>
+                    </div>
                 </div>
-            </div>
-            <div class="d-flex justify-content-between align-items-center custom-mt-1">
-                <h5>Web Ref.</h5>
-                <div>
-                    <input class="custom-input-1" type="text"/>
+                <div class="d-flex justify-content-between align-items-center custom-mt-1">
+                    <h5>Web Ref.</h5>
+                    <div>
+                        <input class="custom-input-1 form-control" type="text"/>
+                    </div>
                 </div>
+                <div class="d-flex justify-content-end custom-mt-1">
+                    <button class="btn btn-grey" type="button" onclick="myFunction()" value="Submit form">Add</button>
+                </div>
+            </form>
+            <div class="fixed-btn custom-mt-1">
+                <button class="btn btn-grey" type="button" onclick="myFunction()" value="Submit form">Cancel</button>
             </div>
-            <div class="d-flex justify-content-end custom-mt-1">
-                <button class="btn btn-grey">Add</button>
+            <div class="fixed-btn-2 custom-mt-1">
+                <button class="btn btn-green" type="button" onclick="myFunction()" value="Submit form">Ok</button>
             </div>
         </div>
     </div>
 </div>
 
 </body>
+
 </html>
