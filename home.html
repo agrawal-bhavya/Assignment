@@ -25,17 +25,18 @@
                         Find
                     </div>
                     <div class="custom-ml-1">
-                        <input class="custom-input-1 form-control" type="text"/>
+                        <input class="custom-input-1 form-control" id="searchbar" type="text"/>
+                        <ul id="productsList"></ul>
                     </div>
                 </div>
                 <div>
-                    <button class="btn btn-grey">Delete</button>
+                    <button class="btn btn-grey" onclick="deleteRow(this)">Delete</button>
                 </div>
             </div>
-            <table class="table table-bordered table-bordered-custom custom-mt-1">
+            <table id="list" class="table table-bordered table-bordered-custom custom-mt-1">
                 <thead class="table-head">
                 <tr>
-                    <th class="custom-head-styling" scope="col">#</th>
+<!--                    <th class="custom-head-styling" scope="col">#</th>-->
                     <th class="custom-head-styling" scope="col">Name</th>
                     <th class="custom-head-styling" scope="col">Description</th>
                     <th class="custom-head-styling" scope="col">Web Reference</th>
@@ -48,91 +49,91 @@
                         {
                             "data": [
                                 {
-                                    "id": 1,
+                                    // "id": 1,
                                     "name": "Andrews Phillip",
                                     "description": "Contrary to popular belief, Lorem",
                                     "webReference": "Sam X Williams"
                                 },
                                 {
-                                    "id": 2,
+                                    // "id": 2,
                                     "name": "Dillard Mauleen",
                                     "description": "Contrary to popular belief, Lorem",
                                     "webReference": "Andy Anthony"
                                 },
                                 {
-                                    "id": 3,
+                                    // "id": 3,
                                     "name": "Miller Jessica",
                                     "description": "Contrary to popular belief, Lorem",
                                     "webReference": "Mark Twian"
                                 },
                                 {
-                                    "id": 4,
+                                    // "id": 4,
                                     "name": "Marcus Brownless",
                                     "description": "Contrary to popular belief, Lorem",
                                     "webReference": "Phillip Melo"
                                 },
                                 {
-                                    "id": 5,
+                                    // "id": 5,
                                     "name": "Jake Peralta",
                                     "description": "Contrary to popular belief, Lorem",
                                     "webReference": "Andy Anthony"
                                 },
                                 {
-                                    "id": 6,
+                                    // "id": 6,
                                     "name": "Adam Lewy",
                                     "description": "Contrary to popular belief, Lorem",
                                     "webReference": "Andy Anthony"
                                 },
                                 {
-                                    "id": 7,
+                                    // "id": 7,
                                     "name": "Anthony Hopkins",
                                     "description": "Contrary to popular belief, Lorem",
                                     "webReference": "Terry Christie"
                                 },
                                 {
-                                    "id": 8,
+                                    // "id": 8,
                                     "name": "Sebastian Vettel",
                                     "description": "Contrary to popular belief, Lorem",
                                     "webReference": "George Lecrec"
                                 },
                                 {
-                                    "id": 9,
+                                    // "id": 9,
                                     "name": "John Ralfion",
                                     "description": "Contrary to popular belief, Lorem",
                                     "webReference": "Andy Anthony"
                                 },
                                 {
-                                    "id": 10,
+                                    // "id": 10,
                                     "name": "Leslie Knope",
                                     "description": "Contrary to popular belief, Lorem",
                                     "webReference": "April Ludgate"
                                 },
                                 {
-                                    "id": 11,
+                                    // "id": 11,
                                     "name": "Rom Swanson",
                                     "description": "Contrary to popular belief, Lorem",
                                     "webReference": "Andrew Bernard"
                                 },
                                 {
-                                    "id": 12,
+                                    // "id": 12,
                                     "name": "Jimothy Halpert",
                                     "description": "Contrary to popular belief, Lorem",
                                     "webReference": "Jack Ryan"
                                 },
                                 {
-                                    "id": 13,
+                                    // "id": 13,
                                     "name": "Michael Scott",
                                     "description": "Contrary to popular belief, Lorem",
                                     "webReference": "Prison Mike"
                                 },
                                 {
-                                    "id": 14,
+                                    // "id": 14,
                                     "name": "Walter White",
                                     "description": "Contrary to popular belief, Lorem",
                                     "webReference": "Albert S Crews"
                                 },
                                 {
-                                    "id": 15,
+                                    // "id": 15,
                                     "name": "Sheldon Cooper",
                                     "description": "Contrary to popular belief, Lorem",
                                     "webReference": "Craig McMullam"
@@ -141,6 +142,7 @@
                         }
                     //Accessing the JSON Document using these loops
                     Object.keys(json_data['data']).forEach(key => {
+                        (json_data['data']).sort(function(a,b) { return  a.name .localeCompare( b.name) } );
                         var tr = document.createElement('tr');
                         tr.className = 'cell'
                         document.getElementsByTagName('tbody')[0].appendChild(tr);
@@ -174,23 +176,23 @@
                 <div class="d-flex justify-content-between align-items-center">
                     <h5>Name</h5>
                     <div>
-                        <input class="custom-input-1 form-control" type="text"/>
+                        <input class="custom-input-1 form-control" id="Name" type="text"/>
                     </div>
                 </div>
                 <div class="d-flex justify-content-between align-items-center custom-mt-1">
                     <h5>Description</h5>
                     <div>
-                        <input class="custom-input-1 form-control" type="text"/>
+                        <input class="custom-input-1 form-control" id="description" type="text"/>
                     </div>
                 </div>
                 <div class="d-flex justify-content-between align-items-center custom-mt-1">
                     <h5>Web Ref.</h5>
                     <div>
-                        <input class="custom-input-1 form-control" type="text"/>
+                        <input class="custom-input-1 form-control" id="reference" type="text"/>
                     </div>
                 </div>
                 <div class="d-flex justify-content-end custom-mt-1">
-                    <button class="btn btn-grey" type="button" onclick="myFunction()" value="Submit form">Add</button>
+                    <button class="btn btn-grey" type="button" onclick="addData(this)">Add</button>
                 </div>
             </form>
             <div class="fixed-btn custom-mt-1">
@@ -204,5 +206,45 @@
 </div>
 
 </body>
+<script>
+    let products = json_data['data'];
 
+    var productsList = document.getElementById("productsList")
+    const searchBar = document.getElementById('searchbar')
+
+
+    // Function that returns <li> items
+    const displayProducts = (products) => {
+        const htmlString = products.slice(0, 15).map((product) => { return `<li>${product.name}</li>`; }).join("");
+        productsList.innerHTML = htmlString;
+    }
+    searchBar.addEventListener('keyup', (e) => {
+        const searchString = e.target.value.toLowerCase();
+        const produitsFiltres = products.filter(item => {
+            return (
+                item.name.toLowerCase().includes(searchString)
+            )
+        });
+
+
+        displayProducts(produitsFiltres)
+    })
+</script>
+<script>
+    function addData(el) {
+        var table = document.getElementById('list');
+        var tr = table.insertRow();
+        tr.className = 'cell'
+        el.form.querySelectorAll('input').forEach(function(el) {
+            var cell = tr.appendChild(document.createElement('td'));
+            cell.textContent = el.value;
+        });
+    }
+</script>
+<script>
+    function deleteRow(r) {
+        var i = r.parentNode.parentNode.rowIndex;
+        document.getElementById("list").deleteRow(i);
+    }
+</script>
 </html>
