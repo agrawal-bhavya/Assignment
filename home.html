@@ -16,220 +16,247 @@
         <div><img src="assets/images/error transparent.svg"</div>
     </div>
 </div>
-<div class="container-fluid custom-mt-2">
-    <div class="row">
-        <div class="col-lg-7 border-right">
-            <div class="d-flex justify-content-between align-items-center">
-                <div class="d-flex align-items-center">
-                    <div>
-                        Find
+<ul class="nav nav-tabs justify-content-end" role="tablist">
+    <li class="nav-item">
+        <a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab">Immunisation Alerts</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab">Lab Alerts</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#tabs-3" role="tab">DI Alerts</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#tabs-4" role="tab">Procedure Alerts</a>
+    </li>
+    <li class="nav-item">
+    <a class="nav-link" data-toggle="tab" href="#tabs-5" role="tab">RX Specific Alerts</a>
+    </li>
+    <li class="nav-item">
+    <a class="nav-link" data-toggle="tab" href="#tabs-6" role="tab">DX Specific Alerts</a>
+    </li>
+    <li class="nav-item">
+    <a class="nav-link" data-toggle="tab" href="#tabs-7" role="tab">Patient Specific Alerts</a>
+    </li>
+</ul><!-- Tab panes -->
+<div class="tab-content">
+    <div class="tab-pane active" id="tabs-1" role="tabpanel">
+        <div class="container-fluid custom-mt-2">
+            <div class="row">
+                <div class="col-lg-7 border-right">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="d-flex align-items-center">
+                            <div>
+                                Find
+                            </div>
+                            <div class="custom-ml-1">
+                                <input class="custom-input-1 form-control" id="searchbar" type="text"/>
+                                <ul id="productsList"></ul>
+                            </div>
+                        </div>
+                        <div>
+                            <button class="btn btn-grey" onclick="deleteRow(this)">Delete</button>
+                        </div>
                     </div>
-                    <div class="custom-ml-1">
-                        <input class="custom-input-1 form-control" id="searchbar" type="text"/>
-                        <ul id="productsList"></ul>
-                    </div>
-                </div>
-                <div>
-                    <button class="btn btn-grey" onclick="deleteRow(this)">Delete</button>
-                </div>
-            </div>
-            <table id="list" class="table table-bordered table-bordered-custom custom-mt-1">
-                <thead class="table-head">
-                <tr>
-<!--                    <th class="custom-head-styling" scope="col">#</th>-->
-                    <th class="custom-head-styling" scope="col">Name</th>
-                    <th class="custom-head-styling" scope="col">Description</th>
-                    <th class="custom-head-styling" scope="col">Web Reference</th>
-                </tr>
-                </thead>
-                <tbody>
+                    <table id="list" class="table table-bordered table-bordered-custom custom-mt-1">
+                        <thead class="table-head">
+                        <tr>
+                            <!--                    <th class="custom-head-styling" scope="col">#</th>-->
+                            <th class="custom-head-styling" scope="col">Name</th>
+                            <th class="custom-head-styling" scope="col">Description</th>
+                            <th class="custom-head-styling" scope="col">Web Reference</th>
+                        </tr>
+                        </thead>
+                        <tbody>
 
-                <script>
-                    json_data =
-                        {
-                            "data": [
+                        <script>
+                            json_data =
                                 {
-                                    // "id": 1,
-                                    "name": "Andrews Phillip",
-                                    "description": "Contrary to popular belief, Lorem",
-                                    "webReference": "Sam X Williams"
-                                },
-                                {
-                                    // "id": 2,
-                                    "name": "Dillard Mauleen",
-                                    "description": "Contrary to popular belief, Lorem",
-                                    "webReference": "Andy Anthony"
-                                },
-                                {
-                                    // "id": 3,
-                                    "name": "Miller Jessica",
-                                    "description": "Contrary to popular belief, Lorem",
-                                    "webReference": "Mark Twian"
-                                },
-                                {
-                                    // "id": 4,
-                                    "name": "Marcus Brownless",
-                                    "description": "Contrary to popular belief, Lorem",
-                                    "webReference": "Phillip Melo"
-                                },
-                                {
-                                    // "id": 5,
-                                    "name": "Jake Peralta",
-                                    "description": "Contrary to popular belief, Lorem",
-                                    "webReference": "Andy Anthony"
-                                },
-                                {
-                                    // "id": 6,
-                                    "name": "Adam Lewy",
-                                    "description": "Contrary to popular belief, Lorem",
-                                    "webReference": "Andy Anthony"
-                                },
-                                {
-                                    // "id": 7,
-                                    "name": "Anthony Hopkins",
-                                    "description": "Contrary to popular belief, Lorem",
-                                    "webReference": "Terry Christie"
-                                },
-                                {
-                                    // "id": 8,
-                                    "name": "Sebastian Vettel",
-                                    "description": "Contrary to popular belief, Lorem",
-                                    "webReference": "George Lecrec"
-                                },
-                                {
-                                    // "id": 9,
-                                    "name": "John Ralfion",
-                                    "description": "Contrary to popular belief, Lorem",
-                                    "webReference": "Andy Anthony"
-                                },
-                                {
-                                    // "id": 10,
-                                    "name": "Leslie Knope",
-                                    "description": "Contrary to popular belief, Lorem",
-                                    "webReference": "April Ludgate"
-                                },
-                                {
-                                    // "id": 11,
-                                    "name": "Rom Swanson",
-                                    "description": "Contrary to popular belief, Lorem",
-                                    "webReference": "Andrew Bernard"
-                                },
-                                {
-                                    // "id": 12,
-                                    "name": "Jimothy Halpert",
-                                    "description": "Contrary to popular belief, Lorem",
-                                    "webReference": "Jack Ryan"
-                                },
-                                {
-                                    // "id": 13,
-                                    "name": "Michael Scott",
-                                    "description": "Contrary to popular belief, Lorem",
-                                    "webReference": "Prison Mike"
-                                },
-                                {
-                                    // "id": 14,
-                                    "name": "Walter White",
-                                    "description": "Contrary to popular belief, Lorem",
-                                    "webReference": "Albert S Crews"
-                                },
-                                {
-                                    // "id": 15,
-                                    "name": "Sheldon Cooper",
-                                    "description": "Contrary to popular belief, Lorem",
-                                    "webReference": "Craig McMullam"
+                                    "data": [
+                                        {
+                                            // "id": 1,
+                                            "name": "Andrews Phillip",
+                                            "description": "Contrary to popular belief, Lorem",
+                                            "webReference": "Sam X Williams"
+                                        },
+                                        {
+                                            // "id": 2,
+                                            "name": "Dillard Mauleen",
+                                            "description": "Contrary to popular belief, Lorem",
+                                            "webReference": "Andy Anthony"
+                                        },
+                                        {
+                                            // "id": 3,
+                                            "name": "Miller Jessica",
+                                            "description": "Contrary to popular belief, Lorem",
+                                            "webReference": "Mark Twian"
+                                        },
+                                        {
+                                            // "id": 4,
+                                            "name": "Marcus Brownless",
+                                            "description": "Contrary to popular belief, Lorem",
+                                            "webReference": "Phillip Melo"
+                                        },
+                                        {
+                                            // "id": 5,
+                                            "name": "Jake Peralta",
+                                            "description": "Contrary to popular belief, Lorem",
+                                            "webReference": "Andy Anthony"
+                                        },
+                                        {
+                                            // "id": 6,
+                                            "name": "Adam Lewy",
+                                            "description": "Contrary to popular belief, Lorem",
+                                            "webReference": "Andy Anthony"
+                                        },
+                                        {
+                                            // "id": 7,
+                                            "name": "Anthony Hopkins",
+                                            "description": "Contrary to popular belief, Lorem",
+                                            "webReference": "Terry Christie"
+                                        },
+                                        {
+                                            // "id": 8,
+                                            "name": "Sebastian Vettel",
+                                            "description": "Contrary to popular belief, Lorem",
+                                            "webReference": "George Lecrec"
+                                        },
+                                        {
+                                            // "id": 9,
+                                            "name": "John Ralfion",
+                                            "description": "Contrary to popular belief, Lorem",
+                                            "webReference": "Andy Anthony"
+                                        },
+                                        {
+                                            // "id": 10,
+                                            "name": "Leslie Knope",
+                                            "description": "Contrary to popular belief, Lorem",
+                                            "webReference": "April Ludgate"
+                                        },
+                                        {
+                                            // "id": 11,
+                                            "name": "Rom Swanson",
+                                            "description": "Contrary to popular belief, Lorem",
+                                            "webReference": "Andrew Bernard"
+                                        },
+                                        {
+                                            // "id": 12,
+                                            "name": "Jimothy Halpert",
+                                            "description": "Contrary to popular belief, Lorem",
+                                            "webReference": "Jack Ryan"
+                                        },
+                                        {
+                                            // "id": 13,
+                                            "name": "Michael Scott",
+                                            "description": "Contrary to popular belief, Lorem",
+                                            "webReference": "Prison Mike"
+                                        },
+                                        {
+                                            // "id": 14,
+                                            "name": "Walter White",
+                                            "description": "Contrary to popular belief, Lorem",
+                                            "webReference": "Albert S Crews"
+                                        },
+                                        {
+                                            // "id": 15,
+                                            "name": "Sheldon Cooper",
+                                            "description": "Contrary to popular belief, Lorem",
+                                            "webReference": "Craig McMullam"
+                                        }
+                                    ]
                                 }
-                            ]
-                        }
-                    //Accessing the JSON Document using these loops
-                    Object.keys(json_data['data']).forEach(key => {
-                        (json_data['data']).sort(function(a,b) { return  a.name .localeCompare( b.name) } );
-                        var tr = document.createElement('tr');
-                        tr.className = 'cell'
-                        document.getElementsByTagName('tbody')[0].appendChild(tr);
-                        Object.keys(json_data['data'][key]).forEach(key2 => {
-                            var td = document.createElement('td');
-                            td.setAttribute('colspan', '1');
-                            if (key2 === 'users') {
-                                Object.keys(json_data['data'][key][key2]).forEach(key3 => {
-                                    if (key3 > 0) {
-                                        td.innerHTML = td.innerHTML + ', ' + json_data['data'][key][key2][key3]['name'];
+                            //Accessing the JSON Document using these loops
+                            Object.keys(json_data['data']).forEach(key => {
+                                (json_data['data']).sort(function(a,b) { return  a.name .localeCompare( b.name) } );
+                                var tr = document.createElement('tr');
+                                tr.className = 'cell'
+                                document.getElementsByTagName('tbody')[0].appendChild(tr);
+                                Object.keys(json_data['data'][key]).forEach(key2 => {
+                                    var td = document.createElement('td');
+                                    td.setAttribute('colspan', '1');
+                                    if (key2 === 'users') {
+                                        Object.keys(json_data['data'][key][key2]).forEach(key3 => {
+                                            if (key3 > 0) {
+                                                td.innerHTML = td.innerHTML + ', ' + json_data['data'][key][key2][key3]['name'];
+                                            } else {
+                                                td.innerHTML = td.innerHTML + json_data['data'][key][key2][key3]['name'];
+                                            }
+
+                                        })
                                     } else {
-                                        td.innerHTML = td.innerHTML + json_data['data'][key][key2][key3]['name'];
+                                        td.innerHTML = json_data['data'][key][key2];
                                     }
-
+                                    document.getElementsByClassName('cell')[key].appendChild(td);
                                 })
-                            } else {
-                                td.innerHTML = json_data['data'][key][key2];
-                            }
-                            document.getElementsByClassName('cell')[key].appendChild(td);
-                        })
-                    });
+                            });
 
 
-                </script>
+                        </script>
 
-                </tbody>
-            </table>
-        </div>
-        <div class="col-lg-5">
-            <form id="myForm">
-                <div class="d-flex justify-content-between align-items-center">
-                    <h5>Name</h5>
+                        </tbody>
+                    </table>
                     <div>
-                        <input class="custom-input-1 form-control" id="Name" type="text"/>
+                        Total Results: <script>var count = Object.keys(json_data['data']).length;
+                    document.write(count);</script>
                     </div>
                 </div>
-                <div class="d-flex justify-content-between align-items-center custom-mt-1">
-                    <h5>Description</h5>
-                    <div>
-                        <input class="custom-input-1 form-control" id="description" type="text"/>
+                <div class="col-lg-5">
+                    <form id="myForm">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5>Name</h5>
+                            <div>
+                                <input class="custom-input-1 form-control" id="Name" type="text"/>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center custom-mt-1">
+                            <h5>Description</h5>
+                            <div>
+                                <input class="custom-input-1 form-control" id="description" type="text"/>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center custom-mt-1">
+                            <h5>Web Ref.</h5>
+                            <div>
+                                <input class="custom-input-1 form-control" id="reference" type="text"/>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-end custom-mt-1">
+                            <button class="btn btn-grey" type="button" onclick="addData(this)">Add</button>
+                        </div>
+                    </form>
+                    <div class="fixed-btn custom-mt-1">
+                        <button class="btn btn-grey" type="button" onclick="myFunction()" value="Submit form">Cancel</button>
+                    </div>
+                    <div class="fixed-btn-2 custom-mt-1">
+                        <button class="btn btn-green" type="button" onclick="myFunction()" value="Submit form">Ok</button>
                     </div>
                 </div>
-                <div class="d-flex justify-content-between align-items-center custom-mt-1">
-                    <h5>Web Ref.</h5>
-                    <div>
-                        <input class="custom-input-1 form-control" id="reference" type="text"/>
-                    </div>
-                </div>
-                <div class="d-flex justify-content-end custom-mt-1">
-                    <button class="btn btn-grey" type="button" onclick="addData(this)">Add</button>
-                </div>
-            </form>
-            <div class="fixed-btn custom-mt-1">
-                <button class="btn btn-grey" type="button" onclick="myFunction()" value="Submit form">Cancel</button>
-            </div>
-            <div class="fixed-btn-2 custom-mt-1">
-                <button class="btn btn-green" type="button" onclick="myFunction()" value="Submit form">Ok</button>
             </div>
         </div>
     </div>
+    <div class="tab-pane" id="tabs-2" role="tabpanel">
+        <p>Coming Soon</p>
+    </div>
+    <div class="tab-pane" id="tabs-3" role="tabpanel">
+        <p>Coming Soon</p>
+    </div>
+    <div class="tab-pane" id="tabs-4" role="tabpanel">
+        <p>Coming Soon</p>
+    </div>
+    <div class="tab-pane" id="tabs-5" role="tabpanel">
+        <p>Coming Soon</p>
+    </div>
+    <div class="tab-pane" id="tabs-6" role="tabpanel">
+        <p>Coming Soon</p>
+    </div>
+    <div class="tab-pane" id="tabs-7" role="tabpanel">
+        <p>Coming Soon</p>
+    </div>
 </div>
 
+
 </body>
-<script>
-    let products = json_data['data'];
 
-    var productsList = document.getElementById("productsList")
-    const searchBar = document.getElementById('searchbar')
-
-
-    // Function that returns <li> items
-    const displayProducts = (products) => {
-        const htmlString = products.slice(0, 15).map((product) => { return `<li>${product.name}</li>`; }).join("");
-        productsList.innerHTML = htmlString;
-    }
-    searchBar.addEventListener('keyup', (e) => {
-        const searchString = e.target.value.toLowerCase();
-        const produitsFiltres = products.filter(item => {
-            return (
-                item.name.toLowerCase().includes(searchString)
-            )
-        });
-
-
-        displayProducts(produitsFiltres)
-    })
-</script>
 <script>
     function addData(el) {
         var table = document.getElementById('list');
